@@ -1,0 +1,39 @@
+{
+  "image": "gcr.io/kranthi-project-1/googlecloud-to-mongodb",
+  "metadata": {
+    "name": "Googleclpud To MongoDb",
+    "description": "A pipeline reads from Googleclpud and writes to MongoDb.",
+    "parameters": [
+      {
+        "name": "mongoDbUri",
+        "label": "MongoDB Connection URI",
+        "helpText": "URI to connect to MongoDb Atlas",
+        "is_optional": false,
+        "paramType": "TEXT"
+      },
+      {
+        "name": "database",
+        "label": "mongo database",
+        "helpText": "Database in MongoDB to store the collection. ex: my-db.",
+        "is_optional": false,
+        "paramType": "TEXT"
+      },
+      {
+        "name": "collection",
+        "label": "mongo collection",
+        "helpText": "Name of the collection inside MongoDB database. ex: my-collection.",
+        "is_optional": false,
+        "paramType": "TEXT"
+      },
+      {
+        "name": "inputTableSpec",
+        "label": "inputTableSpec",
+        "helpText": "BigQuery source table spec. e.g bigquery-project:dataset.output_table",
+        "paramType": "TEXT"
+      }
+    ]
+  },
+  "sdk_info": {
+    "language": "JAVA"
+  }
+}

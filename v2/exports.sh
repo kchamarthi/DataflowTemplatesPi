@@ -1,0 +1,14 @@
+export PROJECT=kranthi-project-1
+export IMAGE_NAME="mongodb-to-bigquery-cdc"
+export BUCKET_NAME=gs://my-dummy-bucket-kk
+export TARGET_GCR_IMAGE=gcr.io/${PROJECT}/${IMAGE_NAME}
+export BASE_CONTAINER_IMAGE=gcr.io/dataflow-templates-base/java8-template-launcher-base
+export BASE_CONTAINER_IMAGE_VERSION=latest
+export TEMPLATE_MODULE=mongodb-to-googlecloud
+export APP_ROOT=/template/${TEMPLATE_MODULE}
+export COMMAND_SPEC=${APP_ROOT}/resources/mongodb-to-bigquery-cdc-command-spec.json
+export TEMPLATE_IMAGE_SPEC=${BUCKET_NAME}/images/mongodb-to-bigquery-cdc-image-spec.json
+export MONGODB_HOSTNAME="mongodb+srv://m001-student:m001-mongodb-basics@cluster0.07ahm.mongodb.net"
+export MONGODB_DATABASE_NAME=sample_supplies
+export MONGODB_COLLECTION_NAME=sales
+export INPUT_TOPIC=projects/kranthi-project-1/topics/sample_topic
