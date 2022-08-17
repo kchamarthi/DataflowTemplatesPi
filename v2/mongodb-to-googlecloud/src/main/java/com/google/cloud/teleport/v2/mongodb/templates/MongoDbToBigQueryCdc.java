@@ -96,14 +96,18 @@ public class MongoDbToBigQueryCdc {
                           jsonNode = mapper.readValue(docString, JsonNode.class);
                           jsonNode.fieldNames().forEachRemaining(field -> {
                             JsonNode node = jsonNode.get(field);
-                            // System.out.println("Under processing is:"+field);
+
                             if (node.isObject()) {
+                              //If its a nested bson document, then flow goes under isContainer Node
                               if (node.isContainerNode()) {
                                 row.put(field, node);
-                              } else {
+                              }//In case of _id field it goes into this else field
+                              else {
                                 row.put(field, String.valueOf(node.asLong()));
                               }
-                            } else
+                            }
+                            //If field under iteration is of primitive datatype then it comes into else
+                            else
                               row.put(field, jsonNode.get(field));
                           });
                           LOG.info("In apply:");
